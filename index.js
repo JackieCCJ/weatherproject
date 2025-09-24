@@ -11,6 +11,10 @@ const lon = -123.1207;
 // OpenWeather Forecast API (5 day / 3 hour)
 const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
 
+
+
+
+
 async function getWeather() {
   try {
     const response = await fetch(url);
