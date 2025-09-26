@@ -44,8 +44,12 @@
           const datetime = dtLocal.replace('T', ' ') + ':00';
         
           alert("Checking weather for " + datetime + " at lat=" + lat + ", lon=" + lon);
+          const API_BASE =
+            window.location.hostname === "localhost"
+              ? "http://localhost:5000"
+              : "https://render.com/docs/web-services#port-binding"; // Render 的域名
 
-          const r = await fetch(`http://localhost:5000/api/check?lat=${lat}&lon=${lon}&datetime=${encodeURIComponent(datetime)}`);
+          const r = await fetch(`${API_BASE}/api/check?lat=${lat}&lon=${lon}&datetime=${encodeURIComponent(datetime)}`);
           const data = await r.json();
 
           if (data.error) { out.textContent = 'Error: ' + data.error; return; }
