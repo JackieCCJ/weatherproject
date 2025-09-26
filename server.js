@@ -8,10 +8,10 @@ const app = express();
 
 app.use(cors());
 const apiKey = process.env.WEATHER_API_KEY;
-console.log(`1Render provided PORT = ${PORT} also show:`, process.env.PORT);
+
 
 const PORT = process.env.PORT || 5000;
-
+console.log(`1Render provided PORT = ${PORT} also show:`, process.env.PORT);
 app.get('/api/check', async (req, res) => {
   try {
     const { lat, lon, datetime } = req.query;
