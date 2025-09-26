@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Vancouver Trip Planner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>body{font-family:system-ui;padding:1rem;max-width:720px;margin:auto}</style>
+  </head>
+  <body>
+    <h1>Trip Planner (Vancouver)</h1>
+
+    <label>
+      Place
+      <select id="place">
+        <option value="49.2827,-123.1207">Vancouver (Downtown)</option>
+        <option value="49.3270,-123.0990">Grouse Mountain</option>
+        <option value="49.2746,-123.1566">Kitsilano Beach</option>
+        <option value="49.3043,-123.1443">Stanley Park</option>
+      </select>
+    </label>
+
+    <br><br>
+
+    <label>
+      Date/Time
+      <input id="dt" type="datetime-local">
+    </label>
+
+    <br><br>
+
+    <button id="check">Check Weather</button>
+
+    <pre id="out" style="background:#f6f8fa;padding:1rem;white-space:pre-wrap"></pre>
+
+    <script>
+      const out = document.getElementById('out');
+      document.getElementById('check').addEventListener('click', async () => {
+        try {
+          const [lat, lon] = document.getElementById('place').value.split(',');
+          const dtLocal = document.getElementById('dt').value; // "YYYY-MM-DDTHH:MM"
+          if (!dtLocal) { out.textContent = 'Please pick a date/time.'; return; }
+
+          // Convert "YYYY-MM-DDTHH:MM" → "YYYY-MM-DD HH:MM:00" to match your server’s parser
+          const datetime = dtLocal.replace('T', ' ') + ':00';
+        
+          alert("Checking weather for " + datetime + " at lat=" + lat + ", lon=" + lon);
+
+          const r = await fetch(`/api/check?lat=${lat}&lon=${lon}&datetime=${encodeURIComponent(datetime)}`);
+          const data = await r.json();
+
+          if (data.error) { out.textContent = 'Error: ' + data.error; return; }
+
+          out.textContent =
+            `City: ${data.city}\n` +
+            `Chosen: ${data.chosen}\n` +
+            `Matched: ${data.matched_time}\n` +
+            `Temp: ${data.temp}°C (feels like ${data.feels_like}°C)\n` +
+            `Weather: ${data.weather} (${data.description})\n` +
+            `Advice: ${data.advice}`;
+        } catch (e) {
+          out.textContent = 'Request failed.';
+        }
+      });
+    </script>
+  </body>
+</html>
