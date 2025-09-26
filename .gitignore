@@ -1,4 +1,8 @@
 .env
 weather.json
 places.txt
+index.js
+loader.js
+simple.js
+Vancouver_weather
 ignore
