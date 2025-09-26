@@ -1,10 +1,12 @@
 // server.js
 import 'dotenv/config';
 import express from 'express';
+import cors from "cors";
 
 // if Node <18: import fetch from 'node-fetch';
 const app = express();
 
+app.use(cors());
 const apiKey = process.env.WEATHER_API_KEY;
 
 app.get('/api/check', async (req, res) => {

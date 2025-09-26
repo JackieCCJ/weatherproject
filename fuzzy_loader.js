@@ -124,5 +124,7 @@ rl.question("Enter forecast time (YYYY-MM-DD HH:MM:SS): ", (inputTime) => {
     console.log("\n⚠️ Input time is out of forecast range.");
   }
 
+
+  
   rl.close();
 });

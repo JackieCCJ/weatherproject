@@ -45,7 +45,7 @@
         
           alert("Checking weather for " + datetime + " at lat=" + lat + ", lon=" + lon);
 
-          const r = await fetch(`/api/check?lat=${lat}&lon=${lon}&datetime=${encodeURIComponent(datetime)}`);
+          const r = await fetch(`http://localhost:5000/api/check?lat=${lat}&lon=${lon}&datetime=${encodeURIComponent(datetime)}`);
           const data = await r.json();
 
           if (data.error) { out.textContent = 'Error: ' + data.error; return; }
