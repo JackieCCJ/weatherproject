@@ -9,3 +9,5 @@ Let's begin with implement Weather APIs and automating the response for the inpu
 Added .env file which is hidden from the Github containing my own weather API key
 
 Link to explaining the response format:[OpenWeather](https://openweathermap.org/current#format)
+
+Now with front-end deploed on Vercel and back-end deployed on Render, I can do more things now.
