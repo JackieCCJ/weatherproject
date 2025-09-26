@@ -60,7 +60,7 @@ app.get('/api/check', async (req, res) => {
 });
 
 
-console.log("Render provided PORT =", process.env.PORT);
+//console.log("Render provided PORT =", process.env.PORT);
 
 //const PORT = process.env.PORT || 5000;
 
