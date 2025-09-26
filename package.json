@@ -2,11 +2,11 @@
   "name": "weatherproject",
   "version": "1.0.0",
   "type": "module",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
-    "express": "^5.1.0",
-    "react-scripts": "^5.0.1"
+    "express": "^5.1.0"
   }
+  
 }
