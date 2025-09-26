@@ -59,7 +59,8 @@ app.get('/api/check', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
+
 console.log("2Render provided PORT =", process.env.PORT);
 
 app.listen(PORT, () => {
