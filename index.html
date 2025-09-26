@@ -45,7 +45,10 @@
         
           alert("Checking weather for " + datetime + " at lat=" + lat + ", lon=" + lon);
           const API_BASE = "https://weatherproject-backend.onrender.com";
-          const r = await fetch(`${API_BASE}/api/check?lat=${lat}&lon=${lon}&datetime=${encodeURIComponent(datetime)}`);
+          const url = `${API_BASE}/api/check?lat=${lat}&lon=${lon}&datetime=${encodeURIComponent(datetime)}`;
+          alert("Fetching: " + url); // Shows full URL
+          console.log("Fetching:", url); // Also prints in DevTools console
+          const r = await fetch(url);
 
           const data = await r.json();
 
