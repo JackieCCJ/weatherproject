@@ -59,6 +59,15 @@ app.get('/api/check', async (req, res) => {
   }
 });
 
+
+console.log("Render provided PORT =", process.env.PORT);
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`✅ Example app listening on port ${PORT}`);
+});
+
 function getTripSyndrome(weather, description) {
   const w = weather.toLowerCase();
   if (w.includes('rain') || w.includes('snow') || w.includes('thunderstorm')) return 'bad';
@@ -77,11 +86,3 @@ function renderAdvice(syndrome, description) {
     default: return `🤔 Weather uncertain. Conditions: ${description}.`;
   }
 }
-
-console.log("Render provided PORT =", process.env.PORT);
-
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`✅ API running on port ${PORT}`);
-});
