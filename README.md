@@ -9,3 +9,6 @@ Let's begin with implement Weather APIs and automating the response for the inpu
 Added .env file which is hidden from the Github containing my own weather API key
 
 Link to explaining the response format:[OpenWeather](https://openweathermap.org/current#format)
+
+
+This is the prototype branch. Everything can be deployed through local hosting. 本地部署已经完成，开始尝试前后端在服务器上实现。
